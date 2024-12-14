@@ -71,7 +71,9 @@ Navigate to the JDBC Connection Pools folder, then click to add a new Connection
 Fill in the following details for the Connection Pool, then click Next.
 ![](img/connection-pool-step1.png)
 > Pool Name: `SecurityMySQLPool`
+
 > Resource Type: `javax.sql.DataSource`
+
 > Database Driver Vendor: `com.mysql.cj.jdbc.MysqlDataSource`
 
 At the top, fill in the Datasource Classname.  
@@ -81,11 +83,17 @@ At the top, fill in the Datasource Classname.
 At the bottom, fill in the Additional Properties, then click Finish.
 ![](img/connection-pool-step3.png)
 > Password: \<your database password\>
+
 > databaseName: `jdbcRealm`
+
 > serverName: `localhost`
+
 > user: `root`
+
 > portNumber: `3306`
+
 > useSSL: `false`
+
 > allowPublicKeyRetrieval: `true`
 
 ### Resource
@@ -95,6 +103,7 @@ Now that the Connection Pool has been created to the database, we must add it as
 Fill in the JNDI Name and set the pool to the one previously created.
 ![](img/datasource-details.png)
 > JNDI Name: `jdbc/securityDatasource`
+
 > Pool Name: `SecurityMySQLPool`
 
 ### Realm
@@ -106,18 +115,28 @@ Navigate to the Realms folder in the server-config.
 At the top, fill in the Name and Class Name.
 ![](img/realm-step1.png)
 > Name: `jdbcRealm`
-> Class Name: `com.sun.enterprise.security.ee.authentication.glassfish.jdbc.JDBCRealm`
+
+> Class Name: 
+`com.sun.enterprise.security.ee.authentication.glassfish.jdbc.JDBCRealm`
 
 Fill in the rest of the Realm properties.
 ![](img/realm-step2.png)
 > JAAS Context: `jdbcRealm`
+
 > JNDI: `jdbc/securityDatasource`
+
 > User Table: `users`
+
 > User Name Column: `userid`
+
 > Password Column: `password`
+
 > Group Table: `users_groups`
+
 > Group Name Column: `groupid`
+
 > Password Encryption Algorithm: `none`
+
 > Digest Algorithm: `none`
 
 #### Optional: Set to Default Realm
