@@ -1,3 +1,5 @@
+drop table USERS_GROUPS;
+
 create table if not exists USERS_GROUPS
 (
     GROUPID varchar(20)  not null,

@@ -1,3 +1,5 @@
+drop table USERS;
+
 create table if not exists USERS
 (
     USERID   varchar(255) not null
