@@ -37,6 +37,10 @@ public class UsersGroupsController implements Serializable {
         }
         return current;
     }
+    
+    public void setCurrent(UsersGroups usersGroups) {
+        this.current = usersGroups;
+    }
 
     private UsersGroupsFacade getFacade() {
         return ejbFacade;

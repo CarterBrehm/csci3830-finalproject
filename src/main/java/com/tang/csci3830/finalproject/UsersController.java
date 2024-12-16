@@ -24,6 +24,8 @@ public class UsersController implements Serializable {
     private DataModel items = null;
     @EJB
     private com.tang.csci3830.finalproject.UsersFacade ejbFacade;
+    @EJB
+    private com.tang.csci3830.finalproject.UsersGroupsController usersGroupsController;
     private PaginationHelper pagination;
     private int selectedItemIndex;
 
@@ -79,7 +81,18 @@ public class UsersController implements Serializable {
 
     public String create() {
         try {
+            // Create the user
             getFacade().create(current);
+            
+            // Create associated UsersGroups entry
+            UsersGroups userGroup = new UsersGroups();
+            userGroup.setUserid(current.getUserid());
+            userGroup.setGroupid("user");
+            
+            // Use UsersGroupsController to create the group association
+            usersGroupsController.setCurrent(userGroup);
+            usersGroupsController.create();
+            
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UsersCreated"));
             return prepareCreate();
         } catch (Exception e) {
