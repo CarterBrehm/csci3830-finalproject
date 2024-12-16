@@ -1,3 +1,5 @@
+drop table CUSTOMERS;
+
 create table if not exists CUSTOMERS
 (
     ID      int          not null
