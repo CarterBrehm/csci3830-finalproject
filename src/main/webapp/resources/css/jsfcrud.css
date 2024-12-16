@@ -1,82 +1,153 @@
-root { 
-    display: block;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Root Settings */
+:root {
+    --primary-color: #2b6777;  /* Deep Blue */
+    --secondary-color: #52ab98; /* Light Teal */
+    --background-color: #f1f6f9; /* Soft White */
+    --accent-color: #f2a154;    /* Orange Accent */
+    --hover-color: #c8d8e4;     /* Light Gray Hover */
+    --text-color: #333333;      /* Dark Text */
+    --border-radius: 8px;
+}
+
+/* General Body Styling */
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #3a4f54;
-    background-color: #dfecf1;
-    font-size: small;
+    font-family: 'Arial', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 a {
-    color: #e33b06;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
 }
 
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Table Styling */
 table {
-    empty-cells: show;
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-form.jsfcrud_list_form th, td th {
-    font-size: x-small;
-    color: #4e6a71;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-color: #b2d5d6;
-    border-bottom-color: #b2d5d6;
-    border-left-color: #90b4bd;
-    border-right-color: #90b4bd;
-    letter-spacing: 3px;
+th {
+    background-color: var(--primary-color);
+    color: #ffffff;
     text-align: left;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    padding-left: 6px;
-    padding-right: 6px;
-    background-color: #b2d5d6;
+    padding: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 td {
-    vertical-align: top;
-    padding-bottom: 8px;
-    font-size: small;
+    padding: 12px;
+    border: 1px solid var(--hover-color);
+    background-color: #ffffff;
+    color: var(--text-color);
 }
 
-form.jsfcrud_list_form td, td td {
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-right-style: solid;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-color: #b2d5d6;
-    border-bottom-color: #b2d5d6;
-    border-left-color: #b2d5d6;
-    border-right-color: #b2d5d6;
-    vertical-align: baseline;
-    padding-bottom: 0px;
+tr:nth-child(even) {
+    background-color: var(--hover-color);
 }
 
-tr.jsfcrud_odd_row {
-    background-color: #fefeff;
-    color: #4e6a71;
+tr:hover {
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    transition: all 0.3s ease-in-out;
 }
 
-
-tr.jsfcrud_even_row {
-    background-color: #eff5fa;
-    color: #4e6a71;
+/* Form Specific Styling */
+form.jsfcrud_list_form {
+    margin: 20px;
 }
 
+form.jsfcrud_list_form th,
+form.jsfcrud_list_form td {
+    border: 1px solid var(--hover-color);
+    padding: 8px;
+}
+
+form.jsfcrud_list_form th {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+form.jsfcrud_list_form td {
+    background-color: #f9f9f9;
+}
+
+/* Buttons */
+button, input[type="submit"] {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: var(--secondary-color);
+    color: #fff;
+}
+
+/* Headers */
+h1, h2, h3 {
+    color: var(--primary-color);
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Busy Image */
 #busyImage {
     position: absolute;
     left: 50%;
     top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
 }
