@@ -38,7 +38,10 @@
             }
         </style>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <h:outputText value="Welcome, #{loginBean.username}!" />
+            <h:commandButton value="Logout" action="#{loginBean.logout()}" rendered="#{loginBean.loggedIn}"/>
+        </h:form>
         <br />
         <h:link outcome="/user/customers/List" value="Show All Customers"/>
         <br />
@@ -47,12 +50,6 @@
         <h:link outcome="/secure/usersGroups/List" value="Show All Groups"/>
         <br />
         <h:link outcome="/Create.xhtml" value="Create Your Account"/>
-        <br />
-        <h:form>
-            <h:outputText value="Welcome, #{loginBean.username}!" />
-            <br />
-            <h:commandButton value="Logout" action="#{loginBean.logout()}" rendered="#{loginBean.loggedIn}"/>
-        </h:form>
     </h:body>
 </html>
 
