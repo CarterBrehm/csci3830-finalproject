@@ -12,6 +12,9 @@ The project contained in this repository functions as a CRM that allows for auth
 - Customer management
 	- Customer details table
 	- Users can add/edit/remove customers and balances
+	
+## Architecture
+![](img/architecture.png)
 
 # Setup
 ## Requirements
