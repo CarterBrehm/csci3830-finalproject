@@ -40,7 +40,7 @@ a:hover {
 
 /* Table Styling */
 table {
-    width: 100%;
+    width: 80%;
     margin: 20px auto;
     border-collapse: collapse;
     border-radius: var(--border-radius);
@@ -138,6 +138,7 @@ h1, h2, h3 {
     background: #ffffff;
     border-radius: var(--border-radius);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 /* Footer */
@@ -150,4 +151,54 @@ footer {
     bottom: 0;
     width: 100%;
     font-size: 14px;
+}
+
+/* Login Container */
+.login-container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px 20px;
+    background: #fff;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.login-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+.login-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-container label {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--hover-color);
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.login-container input[type="submit"] {
+    margin-top: 20px;
+    font-size: 16px;
+    background-color: var(--primary-color);
+    text-transform: uppercase;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: var(--secondary-color);
 }

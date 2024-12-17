@@ -1,28 +1,34 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Facelet Title</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <!-- Make sure jsfcrud.css is in /resources/css/ -->
+        <h:outputStylesheet name="jsfcrud.css"/>
     </h:head>
-    <style>
-        </style>
     <h:body>
-        <h:form>
-            <h:outputText value="Welcome, #{loginBean.username}!" />
-            <h:commandButton value="Logout" action="#{loginBean.logout()}" rendered="#{loginBean.loggedIn}"/>
-        </h:form>
-        <br />
-        <h:link outcome="/user/customers/List" value="Show All Customers"/>
-        <br />
-        <h:link outcome="/secure/users/List" value="Show All Users"/>
-        <br />
-        <h:link outcome="/secure/usersGroups/List" value="Show All Groups"/>
-        <br />
-        <h:link outcome="/Create.xhtml" value="Create Your Account"/>
-        <br />
-        <h:link outcome="/ShowAndTell.xhtml" value="Duke vs. Godzilla"/>
+        <div class="container">
+            <h1>Welcome</h1>
+            <h:form>
+                <h:outputText value="Welcome, #{loginBean.username}!" />
+                <br/><br/>
+                <h:commandButton value="Logout" action="#{loginBean.logout()}" rendered="#{loginBean.loggedIn}"/>
+            </h:form>
+            <br />
+            <h:link outcome="/user/customers/List" value="Show All Customers"/>
+            <br />
+            <h:link outcome="/secure/users/List" value="Show All Users"/>
+            <br />
+            <h:link outcome="/secure/usersGroups/List" value="Show All Groups"/>
+            <br />
+            <h:link outcome="/Create.xhtml" value="Create Your Account"/>
+            <br />
+            <h:link outcome="/ShowAndTell.xhtml" value="Duke vs. Godzilla"/>
+        </div>
+        <footer>
+            <!-- Footer content -->
+        </footer>
     </h:body>
 </html>
-

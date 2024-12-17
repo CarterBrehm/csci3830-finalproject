@@ -1,101 +1,24 @@
-<?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Login Page</title>
-        <style>
-            body {
-                background-color: #f1f6f9; /* Soft white background */
-                margin: 0;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-                font-family: 'Arial', sans-serif;
-            }
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Login Page</title>
+    <!-- Adjust path to your css if needed -->
+    <link rel="stylesheet" href="css/jsfcrud.css" />
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form method="post" action="j_security_check">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="j_username" placeholder="Enter your username" required/>
 
-            .login-container {
-                background-color: #ffffff;
-                padding: 40px;
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                max-width: 400px;
-                width: 100%;
-                text-align: center;
-            }
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="j_password" placeholder="Enter your password" required/>
 
-            .login-container h1 {
-                color: #2b6777; /* Primary color */
-                margin-bottom: 20px;
-                font-size: 2em;
-                font-weight: bold;
-            }
-
-            .login-container form {
-                display: flex;
-                flex-direction: column;
-            }
-
-            .login-container label {
-                margin-bottom: 8px;
-                text-align: left;
-                color: #333333; /* Dark text */
-                font-size: 1em;
-            }
-
-            .login-container input {
-                padding: 10px;
-                margin-bottom: 20px;
-                border: 1px solid #c8d8e4; /* Light gray */
-                border-radius: 8px;
-                font-size: 1em;
-            }
-
-            .login-container input[type="submit"] {
-                background-color: #2b6777; /* Primary color */
-                color: #ffffff;
-                border: none;
-                cursor: pointer;
-                padding: 12px;
-                font-size: 1.1em;
-                font-weight: bold;
-                border-radius: 8px;
-                transition: background-color 0.3s ease-in-out, transform 0.2s;
-            }
-
-            .login-container input[type="submit"]:hover {
-                background-color: #52ab98; /* Secondary color */
-                transform: scale(1.05);
-            }
-
-            footer {
-                position: absolute;
-                bottom: 10px;
-                width: 100%;
-                text-align: center;
-                color: #333333;
-                font-size: 0.9em;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="login-container">
-            <h1>Login</h1>
-            <form method="post" action="j_security_check">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="j_username" placeholder="Enter your username" required/>
-
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="j_password" placeholder="Enter your password" required/>
-
-                <input type="submit" value="Login" />
-            </form>
-        </div>
-        <footer>
-            
-        </footer>
-    </body>
+            <input type="submit" value="Login" />
+        </form>
+    </div>
+</body>
 </html>
