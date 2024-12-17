@@ -1,4 +1,22 @@
+# Description
+The project contained in this repository functions as a CRM that allows for authenticated users to manage a set of customers and balances in a centralized place.
+
+## Features
+- Authentication
+	- New user creation
+	- Registered user login
+	- Cascading permission levels (Admin\>User\>Visitor)
+	- Only Admins can change passwords
+	- User/session logout
+	- `whoami` status on the main page
+- Customer management
+	- Customer details table
+	- Users can add/edit/remove customers and balances
+
 # Setup
+## Requirements
+To run this project, the server must be running **Glassfish 7** with an accessible **MySQL 9** server. The following instructions will connect Glassfish to a JDBCRealm database inside the MySQL server.
+
 ## Database
 The MySQL database is assumed to be running on port 3306.
 
@@ -62,6 +80,11 @@ INSERT INTO jdbcrealm.CUSTOMERS (ID, Name, Balance) VALUES (14, 'Freddy Fazbear\
 
 ## Glassfish
 The following instructions assume the admin console is available on port 4848. We will need to login to the console to setup the database and authentication.
+
+### Driver
+Before connecting to the MySQL server, the Glassfish server must be provided with the required driver class. The connector can be downloaded from the [MySQL Website](https://dev.mysql.com/downloads/connector/j/) as a `Platform Independent (Architecture Independent), ZIP Archive`.
+
+Inside the root level of the zip file, take the file named `mysql-connector-j-9.1.0.jar` and move it to `/$GLASSFISH_HOME/glassfish/lib/`. Reboot Glassfish to properly load the driver.
 
 ### Connection Pool
 First, a connection pool will need to be configured to connect to a MySQL database in which to store the user and customer accounts.
@@ -144,3 +167,24 @@ Normally, applications will define a level of authentication that is appropriate
 
 Navigate to the Security section of the server-config and set the Default Realm to jdbcRealm, then click Save.
 ![](img/default-realm.png)
+
+# Building & Deployment
+## Building
+This project uses Maven for build pipelines and dependency management. First, ensure Maven is installed in your environment or IDE, then run the following commands to validate and package the `.war` file for deployment.
+> mvn clean
+> mvn validate
+> mvn compile
+> mvn package
+When these steps are complete, the output will be located in the target folder.
+> target/csci3830-finalproject-1.0.war
+
+## Deployment
+Deployment to Glassfish server can be done through the admin console. Navigate to Applications and Deploy a new application.
+![](img/deploy-new.png)
+
+Use the system file picker to choose the generated `.war`.
+![](img/deploy-choose.png)
+
+The expanded options can be safely ignored, click OK at the top right to complete the deployment.
+
+Once the deployment is complete, the application is now available relative to the Glassfish server URL at `/csci3830-finalproject-1.0/`.
